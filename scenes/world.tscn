@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5b3c2iaqct87"]
+
+[ext_resource type="PackedScene" uid="uid://bdvy3s7t2xuha" path="res://assets/models/big_terrain.glb" id="1_2bnhp"]
+[ext_resource type="PackedScene" uid="uid://bjliofc8186yh" path="res://assets/models/barrel.glb" id="2_egupu"]
+[ext_resource type="PackedScene" uid="uid://sapmby5sh8fj" path="res://assets/models/turret.glb" id="3_q0rpf"]
+[ext_resource type="PackedScene" uid="uid://nbynm2s6oivj" path="res://assets/models/chassis.glb" id="4_xutbb"]
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_bdddh"]
+
+[node name="World" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("HeightMapShape3D_bdddh")
+
+[node name="Sketchfab_Scene" parent="StaticBody3D/CollisionShape3D" instance=ExtResource("1_2bnhp")]
+transform = Transform3D(4.76671, 0, 0, 0, 2.8768, 0, 0, 0, 4.76064, 147.344, -17.8886, 59.8177)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+
+[node name="Сannon" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4885.82, 241.007, -487.306)
+
+[node name="barrel" type="MeshInstance3D" parent="Сannon"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131.807, 96.7788, 14.3822)
+
+[node name="barrel" parent="Сannon/barrel" instance=ExtResource("2_egupu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.1985, -132.985, -12.6161)
+
+[node name="turret" type="MeshInstance3D" parent="Сannon"]
+
+[node name="turret" parent="Сannon/turret" instance=ExtResource("3_q0rpf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130, -71, 0.22139)
+
+[node name="chassis" type="MeshInstance3D" parent="Сannon"]
+
+[node name="chassis" parent="Сannon/chassis" instance=ExtResource("4_xutbb")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.77384, -0.225951, 0.591707, 0, 0.934205, 0.356738, -0.633381, 0.276058, -0.722925, 5069.83, 351.193, -721.656)

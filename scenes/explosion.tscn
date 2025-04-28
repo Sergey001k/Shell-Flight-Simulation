@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://goh3vkv8vodf"]
 
-[ext_resource type="Material" uid="uid://cxhaa6i7bto07" path="res://ExplosionMaterial.tres" id="1_an4hs"]
+[ext_resource type="Material" uid="uid://2yw6eslwvkt5" path="res://assets/models/ExplosionMaterial.tres" id="1_an4hs"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rva4e"]
 angle_max = 1.0

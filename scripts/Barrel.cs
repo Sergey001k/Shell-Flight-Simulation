@@ -1,25 +1,23 @@
 using Godot;
 using System;
 
-public partial class Bullet : Node3D
-{	
-	private Marker3D _BulletMarker;
-
+public partial class Barrel : Node3D
+{
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		_BulletMarker = GetNode<Marker3D>("../Cannon/Turret/Barrel/BulletMarker");
+		
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		Rotate(new Vector3(1, 0, 0), 0.2f);
+		
 	}
 	
 	private void _on_cannon_shot_fired()
-	{			
-		Position = _BulletMarker.Position;
+	{	
+		AnimationPlayer _Animation = GetNode<AnimationPlayer>("AnimationPlayer");
+		_Animation.Play("recoil");
 	}
-
 }
